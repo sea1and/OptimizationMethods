@@ -1,14 +1,14 @@
-#include <iostream>
+п»ї#include <iostream>
 #include <math.h>
 #include <Windows.h>
 using namespace std;
 
-//Значение f(x) в точке x
+//Р—РЅР°С‡РµРЅРёРµ f(x) РІ С‚РѕС‡РєРµ x
 double f(double x) {
 	return 62.0 / exp(x) + 8.5*x;
 }
 
-//Метод дихотомии
+//РњРµС‚РѕРґ РґРёС…РѕС‚РѕРјРёРё
 void dihotomy(double leftBorder, double rightBorder, double epsilon) {
 	double nextLeftBorder, nextRightBorder;
 	double delta = epsilon;
@@ -18,7 +18,7 @@ void dihotomy(double leftBorder, double rightBorder, double epsilon) {
 	double f_x1 = f(x1);
 	double f_x2 = f(x2);
 
-	//Выбираем новые границы в зависимости от значений f_x1 и f_x2
+	//Р’С‹Р±РёСЂР°РµРј РЅРѕРІС‹Рµ РіСЂР°РЅРёС†С‹ РІ Р·Р°РІРёСЃРёРјРѕСЃС‚Рё РѕС‚ Р·РЅР°С‡РµРЅРёР№ f_x1 Рё f_x2
 	if (f_x1 <= f_x2) {
 		nextLeftBorder = leftBorder;
 		nextRightBorder = x2;
@@ -30,24 +30,24 @@ void dihotomy(double leftBorder, double rightBorder, double epsilon) {
 
 	double nextEpsilon = (nextRightBorder - nextLeftBorder) / 2;
 	if (nextEpsilon <= epsilon) {
-		//Остановка процесса и вывод результата на экран
+		//РћСЃС‚Р°РЅРѕРІРєР° РїСЂРѕС†РµСЃСЃР° Рё РІС‹РІРѕРґ СЂРµР·СѓР»СЊС‚Р°С‚Р° РЅР° СЌРєСЂР°РЅ
 		double result_x = (nextLeftBorder + nextRightBorder) / 2;
 		double result_f_x = f(result_x);
 		cout << endl;
-		cout << "Метод дихотомии:" << endl;
+		cout << "РњРµС‚РѕРґ РґРёС…РѕС‚РѕРјРёРё:" << endl;
 		cout << "x = " << result_x << endl << endl;
 		return;
 	}
 	else {
-		//Следующий шаг
+		//РЎР»РµРґСѓСЋС‰РёР№ С€Р°Рі
 		dihotomy(nextLeftBorder, nextRightBorder, epsilon);
 	}
 }
 
-//Метод золотого сечения
-//flag = 0, если это первая итерация метода
-//flag = 1, если в прошлой итерации f_x1 <= f_x2, в переменную saved_x запоминаем значение x1
-//flag = 2, если в прошлой итерации f_x1 > f_x2, в переменную saved_x передаем значение x2
+//РњРµС‚РѕРґ Р·РѕР»РѕС‚РѕРіРѕ СЃРµС‡РµРЅРёСЏ
+//flag = 0, РµСЃР»Рё СЌС‚Рѕ РїРµСЂРІР°СЏ РёС‚РµСЂР°С†РёСЏ РјРµС‚РѕРґР°
+//flag = 1, РµСЃР»Рё РІ РїСЂРѕС€Р»РѕР№ РёС‚РµСЂР°С†РёРё f_x1 <= f_x2, РІ РїРµСЂРµРјРµРЅРЅСѓСЋ saved_x Р·Р°РїРѕРјРёРЅР°РµРј Р·РЅР°С‡РµРЅРёРµ x1
+//flag = 2, РµСЃР»Рё РІ РїСЂРѕС€Р»РѕР№ РёС‚РµСЂР°С†РёРё f_x1 > f_x2, РІ РїРµСЂРµРјРµРЅРЅСѓСЋ saved_x РїРµСЂРµРґР°РµРј Р·РЅР°С‡РµРЅРёРµ x2
 void golden_section(double leftBorder, double rightBorder, double epsilon, double saved_x, int flag) {
 	double nextLeftBorder, nextRightBorder, x1, x2, next_saved_x;
 	int next_flag;
@@ -68,7 +68,7 @@ void golden_section(double leftBorder, double rightBorder, double epsilon, doubl
 	double f_x1 = f(x1);
 	double f_x2 = f(x2);
 
-	//Выбираем новые границы в зависимости от значений f_x1 и f_x2 (также запоминаем x1 или x2 для след. итерации)
+	//Р’С‹Р±РёСЂР°РµРј РЅРѕРІС‹Рµ РіСЂР°РЅРёС†С‹ РІ Р·Р°РІРёСЃРёРјРѕСЃС‚Рё РѕС‚ Р·РЅР°С‡РµРЅРёР№ f_x1 Рё f_x2 (С‚Р°РєР¶Рµ Р·Р°РїРѕРјРёРЅР°РµРј x1 РёР»Рё x2 РґР»СЏ СЃР»РµРґ. РёС‚РµСЂР°С†РёРё)
 	if (f_x1 <= f_x2) {
 		nextLeftBorder = leftBorder;
 		nextRightBorder = x2;
@@ -84,16 +84,16 @@ void golden_section(double leftBorder, double rightBorder, double epsilon, doubl
 
 	double nextEpsilon = (nextRightBorder - nextLeftBorder) / 2;
 	if (nextEpsilon <= epsilon) {
-		//Остановка процесса и вывод результата на экран
+		//РћСЃС‚Р°РЅРѕРІРєР° РїСЂРѕС†РµСЃСЃР° Рё РІС‹РІРѕРґ СЂРµР·СѓР»СЊС‚Р°С‚Р° РЅР° СЌРєСЂР°РЅ
 		double result_x = (nextLeftBorder + nextRightBorder) / 2;
 		double result_f_x = f(result_x);
 		cout << endl;
-		cout << "Метод золотого сечения:" << endl;
+		cout << "РњРµС‚РѕРґ Р·РѕР»РѕС‚РѕРіРѕ СЃРµС‡РµРЅРёСЏ:" << endl;
 		cout << "x = " << result_x << endl << endl;
 		return;
 	}
 	else {
-		//Следующий шаг
+		//РЎР»РµРґСѓСЋС‰РёР№ С€Р°Рі
 		golden_section(nextLeftBorder, nextRightBorder, epsilon, next_saved_x, next_flag);
 	}
 }
@@ -103,10 +103,10 @@ int main() {
 	bool correct_one = false, correct_two = false;
 	double eps_dih, eps_gold;
 
-	//Просьба ввести пользователя погрешности
+	//РџСЂРѕСЃСЊР±Р° РІРІРµСЃС‚Рё РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ РїРѕРіСЂРµС€РЅРѕСЃС‚Рё
 	while (!correct_one) {
 		double eps;
-		cout << "Введите погрешность для метода дихотомии: ";
+		cout << "Р’РІРµРґРёС‚Рµ РїРѕРіСЂРµС€РЅРѕСЃС‚СЊ РґР»СЏ РјРµС‚РѕРґР° РґРёС…РѕС‚РѕРјРёРё: ";
 		cin >> eps;
 		if (eps > 0) {
 			eps_dih = eps;
@@ -114,19 +114,19 @@ int main() {
 		}
 		else {
 			system("color 04");
-			cout << "Неправильный ввод" << endl;
+			cout << "РќРµРїСЂР°РІРёР»СЊРЅС‹Р№ РІРІРѕРґ" << endl;
 			system("color 07");
 			
 		}
 	}
 	
 
-	//границы a=0, b=5 (исходя из примерного графика функции)
+	//РіСЂР°РЅРёС†С‹ a=0, b=5 (РёСЃС…РѕРґСЏ РёР· РїСЂРёРјРµСЂРЅРѕРіРѕ РіСЂР°С„РёРєР° С„СѓРЅРєС†РёРё)
 	dihotomy(0, 5, eps_dih);
 
 	while (!correct_two) {
 		double eps;
-		cout << "Введите погрешность для метода золотого сечения: ";
+		cout << "Р’РІРµРґРёС‚Рµ РїРѕРіСЂРµС€РЅРѕСЃС‚СЊ РґР»СЏ РјРµС‚РѕРґР° Р·РѕР»РѕС‚РѕРіРѕ СЃРµС‡РµРЅРёСЏ: ";
 		cin >> eps;
 		if (eps > 0) {
 			eps_gold = eps;
@@ -134,7 +134,7 @@ int main() {
 		}
 		else {
 			system("color 04");
-			cout << "Неправильный ввод" << endl;
+			cout << "РќРµРїСЂР°РІРёР»СЊРЅС‹Р№ РІРІРѕРґ" << endl;
 			system("color 07");
 		}
 	}

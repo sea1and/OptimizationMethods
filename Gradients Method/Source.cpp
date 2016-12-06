@@ -1,10 +1,10 @@
-#include <iostream>
+п»ї#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <math.h>
 using namespace std;
 
-//класс для рабосы с векторами
+//РєР»Р°СЃСЃ РґР»СЏ СЂР°Р±РѕСЃС‹ СЃ РІРµРєС‚РѕСЂР°РјРё
 class Vector2x1 {
 public:
 
@@ -20,12 +20,12 @@ public:
 		x1 = 0;
 		x2 = 0;
 	}
-	friend Vector2x1 operator + (Vector2x1 vec1, Vector2x1 vec2) //сложение векторов
+	friend Vector2x1 operator + (Vector2x1 vec1, Vector2x1 vec2) //СЃР»РѕР¶РµРЅРёРµ РІРµРєС‚РѕСЂРѕРІ
 	{
 		Vector2x1 tempVec = Vector2x1(vec1.x1 + vec2.x1, vec1.x2 + vec2.x2);
 		return tempVec;
 	}
-	friend Vector2x1 operator - (Vector2x1 vec1, Vector2x1 vec2) //вычитание векторов
+	friend Vector2x1 operator - (Vector2x1 vec1, Vector2x1 vec2) //РІС‹С‡РёС‚Р°РЅРёРµ РІРµРєС‚РѕСЂРѕРІ
 	{
 		Vector2x1 tempVec = Vector2x1(vec1.x1 - vec2.x1, vec1.x2 - vec2.x2);
 		return tempVec;
@@ -36,7 +36,7 @@ public:
 		x2 += vec.x2;
 		return *this;
 	}
-	friend Vector2x1 operator * (Vector2x1 vec, double a) //умножение вектора на скаляр
+	friend Vector2x1 operator * (Vector2x1 vec, double a) //СѓРјРЅРѕР¶РµРЅРёРµ РІРµРєС‚РѕСЂР° РЅР° СЃРєР°Р»СЏСЂ
 	{
 		Vector2x1 tempVec = Vector2x1(vec.x1*a, vec.x2*a);
 		return tempVec;
@@ -46,7 +46,7 @@ public:
 	}
 };
 
-//функция f1
+//С„СѓРЅРєС†РёСЏ f1
 class f1 {
 	public:
 		double operator() (Vector2x1 v) {
@@ -60,7 +60,7 @@ class f1 {
 		}
 };
 
-//функция f2
+//С„СѓРЅРєС†РёСЏ f2
 class f2 {
 	public:
 		double operator() (Vector2x1 v) {
@@ -74,65 +74,65 @@ class f2 {
 		}
 };
 
-//Градиентный метод для функции F1
+//Р“СЂР°РґРёРµРЅС‚РЅС‹Р№ РјРµС‚РѕРґ РґР»СЏ С„СѓРЅРєС†РёРё F1
 void gradientMinimizationF1(Vector2x1 x_k, double epsilon, double delta, double lambda, double alpha_k, int count, Vector2x1& res) {
 	
-	// alpha - начальный шаг
-	// lambda - величина, на которую дробится шаг
-	// epsilon - погрешность для условия дробления шага
-	// delta - погрешность для критерия останова
+	// alpha - РЅР°С‡Р°Р»СЊРЅС‹Р№ С€Р°Рі
+	// lambda - РІРµР»РёС‡РёРЅР°, РЅР° РєРѕС‚РѕСЂСѓСЋ РґСЂРѕР±РёС‚СЃСЏ С€Р°Рі
+	// epsilon - РїРѕРіСЂРµС€РЅРѕСЃС‚СЊ РґР»СЏ СѓСЃР»РѕРІРёСЏ РґСЂРѕР±Р»РµРЅРёСЏ С€Р°РіР°
+	// delta - РїРѕРіСЂРµС€РЅРѕСЃС‚СЊ РґР»СЏ РєСЂРёС‚РµСЂРёСЏ РѕСЃС‚Р°РЅРѕРІР°
 	
-	//count - счетчик итераций (не обязательно его заводить)
-	//res - переменная, куда кладется результат
+	//count - СЃС‡РµС‚С‡РёРє РёС‚РµСЂР°С†РёР№ (РЅРµ РѕР±СЏР·Р°С‚РµР»СЊРЅРѕ РµРіРѕ Р·Р°РІРѕРґРёС‚СЊ)
+	//res - РїРµСЂРµРјРµРЅРЅР°СЏ, РєСѓРґР° РєР»Р°РґРµС‚СЃСЏ СЂРµР·СѓР»СЊС‚Р°С‚
 
 	f1 function;
 
 	count++;
-	if (count > 1000) { //если количество итераций превысило 1000, то остановка процесса (плохие начальные данные), (если не останавливаться, то программа вылетает)
+	if (count > 1000) { //РµСЃР»Рё РєРѕР»РёС‡РµСЃС‚РІРѕ РёС‚РµСЂР°С†РёР№ РїСЂРµРІС‹СЃРёР»Рѕ 1000, С‚Рѕ РѕСЃС‚Р°РЅРѕРІРєР° РїСЂРѕС†РµСЃСЃР° (РїР»РѕС…РёРµ РЅР°С‡Р°Р»СЊРЅС‹Рµ РґР°РЅРЅС‹Рµ), (РµСЃР»Рё РЅРµ РѕСЃС‚Р°РЅР°РІР»РёРІР°С‚СЊСЃСЏ, С‚Рѕ РїСЂРѕРіСЂР°РјРјР° РІС‹Р»РµС‚Р°РµС‚)
 		res = Vector2x1(0, 0);
 		return;
 	}
 
-	double alpha = alpha_k; //шаг
+	double alpha = alpha_k; //С€Р°Рі
 
 	bool correct = false;
-	while (!correct) { //цикл крутится, пока не выполнится условие на 98 строке
+	while (!correct) { //С†РёРєР» РєСЂСѓС‚РёС‚СЃСЏ, РїРѕРєР° РЅРµ РІС‹РїРѕР»РЅРёС‚СЃСЏ СѓСЃР»РѕРІРёРµ РЅР° 98 СЃС‚СЂРѕРєРµ
 		Vector2x1 gradient = function.gradient(x_k);
-		double norm = gradient.norm(); //длина вектора градиента
+		double norm = gradient.norm(); //РґР»РёРЅР° РІРµРєС‚РѕСЂР° РіСЂР°РґРёРµРЅС‚Р°
 
-		Vector2x1 x = x_k - gradient*alpha; //новая точка x_k_1
-		double f_x = function(x); //значение в этой точке
+		Vector2x1 x = x_k - gradient*alpha; //РЅРѕРІР°СЏ С‚РѕС‡РєР° x_k_1
+		double f_x = function(x); //Р·РЅР°С‡РµРЅРёРµ РІ СЌС‚РѕР№ С‚РѕС‡РєРµ
 
 		if (function(x) - function(x_k) <= -alpha*epsilon*norm*norm) { 
 			correct = true;
-			alpha_k = alpha; // оставляем шаг как есть
+			alpha_k = alpha; // РѕСЃС‚Р°РІР»СЏРµРј С€Р°Рі РєР°Рє РµСЃС‚СЊ
 		}
-		else { // дробим шаг
+		else { // РґСЂРѕР±РёРј С€Р°Рі
 			alpha /= lambda;
 		}
 	}
 	
 	Vector2x1 x_k_1 = x_k - function.gradient(x_k)*alpha_k;
 	Vector2x1 grad = function.gradient(x_k_1);
-	if (grad.norm() <= delta) { // критерий остановки
+	if (grad.norm() <= delta) { // РєСЂРёС‚РµСЂРёР№ РѕСЃС‚Р°РЅРѕРІРєРё
 		res = x_k_1;
 		return;
 	}
 	else {
-		gradientMinimizationF1(x_k_1, epsilon, delta, lambda, alpha_k, count, res); //следующая итерация
+		gradientMinimizationF1(x_k_1, epsilon, delta, lambda, alpha_k, count, res); //СЃР»РµРґСѓСЋС‰Р°СЏ РёС‚РµСЂР°С†РёСЏ
 	}
 
 }
 
 void gradientMinimizationF2(Vector2x1 x_k, double epsilon, double delta, double lambda, double alpha_k, int count, Vector2x1& res) {
 
-	// alpha - начальный шаг
-	// lambda - величина, на которую дробится шаг
-	// epsilon - погрешность для условия дробления шага
-	// delta - погрешность для критерия останова
+	// alpha - РЅР°С‡Р°Р»СЊРЅС‹Р№ С€Р°Рі
+	// lambda - РІРµР»РёС‡РёРЅР°, РЅР° РєРѕС‚РѕСЂСѓСЋ РґСЂРѕР±РёС‚СЃСЏ С€Р°Рі
+	// epsilon - РїРѕРіСЂРµС€РЅРѕСЃС‚СЊ РґР»СЏ СѓСЃР»РѕРІРёСЏ РґСЂРѕР±Р»РµРЅРёСЏ С€Р°РіР°
+	// delta - РїРѕРіСЂРµС€РЅРѕСЃС‚СЊ РґР»СЏ РєСЂРёС‚РµСЂРёСЏ РѕСЃС‚Р°РЅРѕРІР°
 
-	//count - счетчик итераций (не обязательно его заводить)
-	//res - переменная, куда кладется результат
+	//count - СЃС‡РµС‚С‡РёРє РёС‚РµСЂР°С†РёР№ (РЅРµ РѕР±СЏР·Р°С‚РµР»СЊРЅРѕ РµРіРѕ Р·Р°РІРѕРґРёС‚СЊ)
+	//res - РїРµСЂРµРјРµРЅРЅР°СЏ, РєСѓРґР° РєР»Р°РґРµС‚СЃСЏ СЂРµР·СѓР»СЊС‚Р°С‚
 
 	f2 function;
 
@@ -151,18 +151,18 @@ void gradientMinimizationF2(Vector2x1 x_k, double epsilon, double delta, double 
 		Vector2x1 x = x_k - gradient*alpha;
 		double f_x = function(x);
 
-		if (function(x) - function(x_k) <= -alpha*epsilon*norm*norm) { // оставляем шаг как есть
+		if (function(x) - function(x_k) <= -alpha*epsilon*norm*norm) { // РѕСЃС‚Р°РІР»СЏРµРј С€Р°Рі РєР°Рє РµСЃС‚СЊ
 			correct = true;
 			alpha_k = alpha;
 		}
-		else { // дробим шаг
+		else { // РґСЂРѕР±РёРј С€Р°Рі
 			alpha /= lambda;
 		}
 	}
 
 	Vector2x1 x_k_1 = x_k - function.gradient(x_k)*alpha_k;
 	Vector2x1 grad = function.gradient(x_k_1);
-	if (grad.norm() <= delta) { // критерий останова
+	if (grad.norm() <= delta) { // РєСЂРёС‚РµСЂРёР№ РѕСЃС‚Р°РЅРѕРІР°
 		res = x_k_1;
 		return;
 	}
@@ -172,7 +172,7 @@ void gradientMinimizationF2(Vector2x1 x_k, double epsilon, double delta, double 
 
 }
 
-//Рандомное вещественное число в интервале от a до b
+//Р Р°РЅРґРѕРјРЅРѕРµ РІРµС‰РµСЃС‚РІРµРЅРЅРѕРµ С‡РёСЃР»Рѕ РІ РёРЅС‚РµСЂРІР°Р»Рµ РѕС‚ a РґРѕ b
 float RandomFloat(float a, float b) {
 	float random = ((float)rand()) / (float)RAND_MAX;
 	float diff = b - a;
@@ -185,41 +185,41 @@ int main() {
 	setlocale(LC_ALL, "Russian");
 
 	double lambda = 1.2, alpha = 1.0, epsilon = 0.1, delta;
-	// alpha - начальный шаг
-	// lambda - величина, на которую дробится шаг
-	// epsilon - погрешность для условия дробления шага
-	// delta - погрешность для критерия останова
+	// alpha - РЅР°С‡Р°Р»СЊРЅС‹Р№ С€Р°Рі
+	// lambda - РІРµР»РёС‡РёРЅР°, РЅР° РєРѕС‚РѕСЂСѓСЋ РґСЂРѕР±РёС‚СЃСЏ С€Р°Рі
+	// epsilon - РїРѕРіСЂРµС€РЅРѕСЃС‚СЊ РґР»СЏ СѓСЃР»РѕРІРёСЏ РґСЂРѕР±Р»РµРЅРёСЏ С€Р°РіР°
+	// delta - РїРѕРіСЂРµС€РЅРѕСЃС‚СЊ РґР»СЏ РєСЂРёС‚РµСЂРёСЏ РѕСЃС‚Р°РЅРѕРІР°
 
 	bool correct = false;
 
-	//Просьба ввести пользователя погрешность
+	//РџСЂРѕСЃСЊР±Р° РІРІРµСЃС‚Рё РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ РїРѕРіСЂРµС€РЅРѕСЃС‚СЊ
 	while (!correct) {
 		double eps;
-		cout << "Введите погрешность: ";
+		cout << "Р’РІРµРґРёС‚Рµ РїРѕРіСЂРµС€РЅРѕСЃС‚СЊ: ";
 		cin >> eps;
 		if (eps > 0) {
 			delta = eps;
 			correct = true;
 		}
 		else {
-			cout << "Неправильный ввод" << endl;
+			cout << "РќРµРїСЂР°РІРёР»СЊРЅС‹Р№ РІРІРѕРґ" << endl;
 		}
 	}
 
 	cout << endl;
-	cout << "Функция f1" << endl;
+	cout << "Р¤СѓРЅРєС†РёСЏ f1" << endl;
 
 	char str;
-	cout << "Вы хотите ввести начальные данные вручную, или сгенерировать их случайно? (y/n): ";
+	cout << "Р’С‹ С…РѕС‚РёС‚Рµ РІРІРµСЃС‚Рё РЅР°С‡Р°Р»СЊРЅС‹Рµ РґР°РЅРЅС‹Рµ РІСЂСѓС‡РЅСѓСЋ, РёР»Рё СЃРіРµРЅРµСЂРёСЂРѕРІР°С‚СЊ РёС… СЃР»СѓС‡Р°Р№РЅРѕ? (y/n): ";
 	cin >> str;
 
-	//Дальше идет либо случайная генерация начальных данных, либо просьба пользователя ввести их
+	//Р”Р°Р»СЊС€Рµ РёРґРµС‚ Р»РёР±Рѕ СЃР»СѓС‡Р°Р№РЅР°СЏ РіРµРЅРµСЂР°С†РёСЏ РЅР°С‡Р°Р»СЊРЅС‹С… РґР°РЅРЅС‹С…, Р»РёР±Рѕ РїСЂРѕСЃСЊР±Р° РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ РІРІРµСЃС‚Рё РёС…
 
 	if (str == 'y') {
 		float a, b;
-		cout << "Введите координату x1 = ";
+		cout << "Р’РІРµРґРёС‚Рµ РєРѕРѕСЂРґРёРЅР°С‚Сѓ x1 = ";
 		cin >> a;
-		cout << "Введите координату x2 = ";
+		cout << "Р’РІРµРґРёС‚Рµ РєРѕРѕСЂРґРёРЅР°С‚Сѓ x2 = ";
 		cin >> b;
 		vector<Vector2x1> PointStorage;
 		Vector2x1 x0 = Vector2x1(a, b);
@@ -257,15 +257,15 @@ int main() {
 
 	
 	cout << endl;
-	cout << "Функция f2" << endl;
-	cout << "Вы хотите ввести начальные данные вручную, или сгенерировать их случайно? (y/n): ";
+	cout << "Р¤СѓРЅРєС†РёСЏ f2" << endl;
+	cout << "Р’С‹ С…РѕС‚РёС‚Рµ РІРІРµСЃС‚Рё РЅР°С‡Р°Р»СЊРЅС‹Рµ РґР°РЅРЅС‹Рµ РІСЂСѓС‡РЅСѓСЋ, РёР»Рё СЃРіРµРЅРµСЂРёСЂРѕРІР°С‚СЊ РёС… СЃР»СѓС‡Р°Р№РЅРѕ? (y/n): ";
 	cin >> str;
 
 	if (str == 'y') {
 		float a, b;
-		cout << "Введите координату x1 = ";
+		cout << "Р’РІРµРґРёС‚Рµ РєРѕРѕСЂРґРёРЅР°С‚Сѓ x1 = ";
 		cin >> a;
-		cout << "Введите координату x2 = ";
+		cout << "Р’РІРµРґРёС‚Рµ РєРѕРѕСЂРґРёРЅР°С‚Сѓ x2 = ";
 		cin >> b;
 		vector<Vector2x1> PointStorage;
 		Vector2x1 x0 = Vector2x1(a, b);
