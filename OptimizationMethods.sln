@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Deformable Poly Method", "Deformable Poly Method\Deformable Poly Method.vcxproj", "{4EA378CF-9449-4D65-8057-2C458F9CF867}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Gradients Method", "Gradients Method\Gradients Method.vcxproj", "{D32BB907-C8B0-4886-B0FD-461284A8B3FC}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Conjugated Gradients Method", "Conjugated Gradients Method\Conjugated Gradients Method.vcxproj", "{2F5D38DA-6F2F-40C7-BD28-1282C7C3C778}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Newton's Method", "Newton's Method\Newton's Method.vcxproj", "{44A94CD6-41BE-4C42-94B3-2C5EEDBF5B9A}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Dihotomy and Golden Section Methods", "Dihotomy and Golden Section Methods\Dihotomy and Golden Section Methods.vcxproj", "{8ABA775C-BAB4-4312-8673-19D27A210208}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4EA378CF-9449-4D65-8057-2C458F9CF867}.Debug|Win32.ActiveCfg = Debug|Win32
+		{4EA378CF-9449-4D65-8057-2C458F9CF867}.Debug|Win32.Build.0 = Debug|Win32
+		{4EA378CF-9449-4D65-8057-2C458F9CF867}.Release|Win32.ActiveCfg = Release|Win32
+		{4EA378CF-9449-4D65-8057-2C458F9CF867}.Release|Win32.Build.0 = Release|Win32
+		{D32BB907-C8B0-4886-B0FD-461284A8B3FC}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D32BB907-C8B0-4886-B0FD-461284A8B3FC}.Debug|Win32.Build.0 = Debug|Win32
+		{D32BB907-C8B0-4886-B0FD-461284A8B3FC}.Release|Win32.ActiveCfg = Release|Win32
+		{D32BB907-C8B0-4886-B0FD-461284A8B3FC}.Release|Win32.Build.0 = Release|Win32
+		{2F5D38DA-6F2F-40C7-BD28-1282C7C3C778}.Debug|Win32.ActiveCfg = Debug|Win32
+		{2F5D38DA-6F2F-40C7-BD28-1282C7C3C778}.Debug|Win32.Build.0 = Debug|Win32
+		{2F5D38DA-6F2F-40C7-BD28-1282C7C3C778}.Release|Win32.ActiveCfg = Release|Win32
+		{2F5D38DA-6F2F-40C7-BD28-1282C7C3C778}.Release|Win32.Build.0 = Release|Win32
+		{44A94CD6-41BE-4C42-94B3-2C5EEDBF5B9A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{44A94CD6-41BE-4C42-94B3-2C5EEDBF5B9A}.Debug|Win32.Build.0 = Debug|Win32
+		{44A94CD6-41BE-4C42-94B3-2C5EEDBF5B9A}.Release|Win32.ActiveCfg = Release|Win32
+		{44A94CD6-41BE-4C42-94B3-2C5EEDBF5B9A}.Release|Win32.Build.0 = Release|Win32
+		{8ABA775C-BAB4-4312-8673-19D27A210208}.Debug|Win32.ActiveCfg = Debug|Win32
+		{8ABA775C-BAB4-4312-8673-19D27A210208}.Debug|Win32.Build.0 = Debug|Win32
+		{8ABA775C-BAB4-4312-8673-19D27A210208}.Release|Win32.ActiveCfg = Release|Win32
+		{8ABA775C-BAB4-4312-8673-19D27A210208}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
